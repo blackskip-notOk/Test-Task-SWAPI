@@ -1,0 +1,20 @@
+.navlink {
+    color: green;
+    text-decoration: none;
+}
+
+.activeNavlink {
+    color: red;
+}
+
+.rows {
+    /* background-color: greenyellow; */
+}
+
+.numberColumn {
+    color: purple;
+}
+
+.table {
+    /* background-color: purple; */
+}

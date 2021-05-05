@@ -1,25 +1,49 @@
-import logo from './logo.svg';
+import { Component } from 'react';
+import { Provider } from 'react-redux';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import store from './redux/store';
 import './App.css';
+import 'antd/dist/antd.css';
+import HomeContainer from './components/Home/HomeContainer';
+import PeopleContainer from './components/People/PeopleContainer';
+import FilmsContainer from './components/Films/FilmsContainer';
+import StarshipsContainer from './components/Starships/StarshipsContainer';
+import VehiclesContainer from './components/Vehicles/VehiclesContainer';
+import SpeciesContainer from './components/Species/SpeciesContainer';
+import PlanetsContainer from './components/Planets/PlanetsContainer';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  render() {
+    return (
+      <div>
+        <Switch>
+          <Route exact path = '/'
+            render = {() => <HomeContainer />} />
+          <Route path = '/people/'
+            render = {() => <PeopleContainer />} />
+          <Route path = '/planets/'
+            render = {() => <PlanetsContainer />} />
+          <Route path = '/films/'
+            render = {() => <FilmsContainer />} />
+          <Route path = '/starships/'
+            render = {() => <StarshipsContainer />} />
+          <Route path = '/vehicles/'
+            render = {() => <VehiclesContainer />} />
+          <Route path = '/species/'
+            render = {() => <SpeciesContainer />} />
+        </Switch>
+      </div>
+    );
+  }
 }
 
-export default App;
+const AppContainer = props => {
+  return (
+    <BrowserRouter>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </BrowserRouter>
+  )
+}
+export default AppContainer;

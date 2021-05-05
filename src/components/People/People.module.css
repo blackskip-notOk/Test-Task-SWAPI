@@ -1,0 +1,6 @@
+.nameColumn {
+    display: grid;
+    justify-content: center;
+    width: 200px;
+    border: 1px solid gold;
+}
