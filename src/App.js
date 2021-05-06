@@ -3,7 +3,6 @@ import { Provider } from 'react-redux';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import store from './redux/store';
 import './App.css';
-import 'antd/dist/antd.css';
 import HomeContainer from './components/Home/HomeContainer';
 import PeopleContainer from './components/People/PeopleContainer';
 import FilmsContainer from './components/Films/FilmsContainer';
