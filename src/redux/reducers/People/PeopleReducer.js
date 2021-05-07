@@ -9,8 +9,6 @@ let initialState = {
     people: [],
     isFetching: false,
     currentPage: 1,
-    pageSize: 10,
-    portionSize: 5,
     count: 0
 };
 

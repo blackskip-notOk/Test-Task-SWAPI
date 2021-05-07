@@ -1,0 +1,224 @@
+body {
+    background-color: var(--body_background);
+}
+
+.table {
+    display: grid;
+    width: max-content;
+    height: max-content;
+    margin: 30px auto 0px auto;
+    border: 20px solid var(--table_border_external);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 0px 30px var(--table_box-shadow);
+    -webkit-box-shadow: 0px 0px 30px var(--table_box-shadow);
+}
+
+.tableTitle {
+    text-align: center;
+    margin: 10px 0 20px 0;
+    cursor: default;
+    font-family: var(--table_title_font);
+    font-size: 42px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--table_title_color);
+}
+
+.title {
+    display: grid;
+    grid-template-rows: max-content max-content;
+    grid-template-columns: max-content max-content;
+    grid-template-areas:
+    'title icon'
+    'filter filter';
+    justify-content: center;
+    /* border: 1px solid red; */
+}
+
+.tableTh {
+    grid-area: title;
+    padding: 10px;
+    cursor: default;
+    font-family: var(--table_header_font);
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: var(--table_header_color);
+}
+
+.filter {
+    grid-area: icon;
+    display: flex;
+    justify-self: start;
+    transform: scale(1.5);
+    margin: 10px 0px 0px 10px;
+    color: var(--filter_icon);
+    cursor: pointer;
+}
+
+
+.filterDiv {
+    grid-area: filter;
+}
+
+.filterForm {
+    display: grid;
+}
+
+.filterInput {
+    display: flex;
+    justify-self: center;
+    text-align: center;
+    width: max-content;
+    margin-bottom: 5px;
+    border: 1px solid var(--filter_input_border);
+    border-radius: 5px;
+    padding: 5px;
+    outline: none;
+    font-size: 14px;
+    color: var(--filter_text);
+    background-color: var(--filter_back);
+}
+
+.filterInput:focus {
+    border: 1px solid var(--filter_border_focus);
+}
+
+.inputButton {
+    display: flex;
+    justify-self: center;
+    margin-bottom: 5px;
+    width: max-content;
+    padding: 5px;
+    outline: none;
+    cursor: pointer;
+    border: 1px solid var(--button_border);
+    border-radius: 10px;
+    font-family: var(--button_text);
+    background-color: var(--button_color);
+    color: var(--button_text_color);
+}
+
+.inputButton:hover {
+    box-shadow: 0px 0px 10px var(--button_hover);
+}
+
+.rows {
+    text-align: center;
+    font-family: var(--table_text_font);
+    font-size: 12px;
+    font-weight: normal;
+    color: var(--table_text_color);
+}
+
+.createdColumn {
+    vertical-align: middle;
+    padding: 10px;
+    cursor: default;
+    border: 1px solid var(--table_border_internal);
+}
+
+.editedColumn {
+    vertical-align: middle;
+    padding: 10px;
+    cursor: default;
+    border: 1px solid var(--table_border_internal);
+}
+
+.urlColumn {
+    vertical-align: middle;
+    padding: 10px;
+    border: 1px solid var(--table_border_internal);
+}
+
+.apiLink {
+    cursor: alias;
+    font-size: 12px;
+    padding: 0 10px;
+    font-family: var(--apiLink);
+    font-weight: 300;
+    color: var(--apiLink_default);
+}
+
+.apiLink:hover {
+    color: var(--apiLink_hover);
+    text-shadow: 0px 3px 10px var(--apiLink_shadow);
+}
+
+.apiLink:active {
+    color: var(--apiLink_active);
+}
+
+.apiLink:visited {
+    color: var(--apiLink_visited);
+}
+
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-items: flex-start;
+    width: 100%;
+    font-family: var(--pagination_text);
+    font-size: 20px;
+    font-weight: normal;
+    margin: 0px 0px 30px 30px;
+    padding: 10px 10px 10px 10px;
+}
+
+.changePage {
+    margin: 0 10px;
+    padding: 5px 10px;
+    background-color: var(--changePage_color);
+    color: var(--changePage_text_color);
+    border: 1px solid var(--changePage_border);
+    cursor: pointer;
+}
+
+.changePage:hover {
+    background-color: var(--changePage_color_hover);
+    color: var(--changePage_text_color_hover);
+    border: 1px solid var(--changePage_border_hover);
+    box-shadow: 0px 0px 10px var(--paginator_active);
+}
+
+.changePage:active {
+    background-color: var(--changePage_color_active);
+    color: var(--changePage_text_color_active);
+    border: 1px solid var(--changePage_border_active);
+    box-shadow: 0px 0px 10px var(--paginator_active);
+}
+
+
+.page {
+    margin: 0 10px;
+    padding: 5px 10px;
+    background-color: var(--paginator_color);
+    color: var(--paginator_text_color);
+    border: 1px solid var(--paginator_border);
+    cursor: pointer;
+}
+
+.pageChosen {
+    margin: 0 10px;
+    padding: 5px 10px;
+    background-color: var(--paginator_color_chosen);
+    color: var(--paginator_text_color);
+    border: 1px solid var(--paginator_border);
+    cursor: pointer;
+}
+
+.page:hover {
+    background-color: var(--paginator_color_hover);
+    color: var(--paginator_text_color_hover);
+    border: 1px solid var(--paginator_border_hover);
+    box-shadow: 0px 0px 10px var(--paginator_hover);
+}
+
+.page:active {
+    background-color: var(--paginator_color_active);
+    color: var(--paginator_text_color_active);
+    border: 1px solid var(--paginator_border_active);
+    box-shadow: 0px 0px 10px var(--paginator_active);
+}

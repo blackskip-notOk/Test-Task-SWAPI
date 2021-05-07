@@ -3,18 +3,17 @@ import React from 'react';
 import { homeColumns } from '../../utils/columns';
 import { homeTableData, homeTitle } from '../../utils/dataSource';
 import s from './Home.module.css';
+import commonStyles from '../Components.module.css';
 
 const Home = ({titles, api}) => {
-    const columns = homeColumns();
-    const dataSource = homeTableData(titles, api);
     const title = homeTitle;
     return (
-        <Table dataSource={dataSource}
-            columns={columns}
+        <Table dataSource={homeTableData(titles, api)}
+            columns={homeColumns()}
             pagination={false}
             title={title}
             rowClassName={s.rows}
-            className={s.table} />
+            className={commonStyles.table} />
     );
 }
 

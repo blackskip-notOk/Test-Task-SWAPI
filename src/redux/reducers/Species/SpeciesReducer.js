@@ -9,8 +9,6 @@ let initialState = {
     species: [],
     isFetching: false,
     currentPage: 1,
-    next: null,
-    previous: null,
     count: 0,
 };
 

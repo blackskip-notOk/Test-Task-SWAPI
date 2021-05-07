@@ -2,7 +2,7 @@ import { Button } from 'antd';
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import homeStyle from '../components/Home/Home.module.css';
-import peopleStyle from '../components/People/People.module.css';
+import commonStyles from '../components/Components.module.css';
 
 export const homeTableData = (titles, api) => {
     return (
@@ -77,10 +77,16 @@ export const homeTableData = (titles, api) => {
     );
 };
 
-// export const setTitle = (text, className) => {
-//     return <h2 className={className}>{text}</h2>;
-// }
+export const homeTitle = () => <h2 className={commonStyles.tableTitle}>Домашняя страница</h2>;
 
-export const homeTitle = () => <h2 className={homeStyle.tableTitle}>Домашняя страница</h2>;
+export const peopleTitle = () => <h2 className={commonStyles.tableTitle}>Персонажи из вселенной Star Wars</h2>;
 
-export const peopleTitle = () => <h2 className={peopleStyle.tableTitle}>Персонажи из вселенной Star Wars</h2>;
+export const planetsTitle = () => <h2 className={commonStyles.tableTitle}>Планеты из вселенной Star Wars</h2>;
+
+export const filmsTitle = () => <h2 className={commonStyles.tableTitle}>Фильмы вселенной Star Wars</h2>;
+
+export const speciesTitle = () => <h2 className={commonStyles.tableTitle}>Виды существ из вселенной Star Wars</h2>;
+
+export const vehiclesTitle = () => <h2 className={commonStyles.tableTitle}>Транпорт из вселенной Star Wars</h2>;
+
+export const starshipsTitle = () => <h2 className={commonStyles.tableTitle}>Космические корабли из вселенной Star Wars</h2>;

@@ -11,6 +11,12 @@
     --table_title_color:#F5CA99;
     --table_header_color:#FE7A47;
     --table_text_color:#8fa1b4;
+
+    --filter_icon: #F5CA99;
+    --filter_input_border: #4D648D;
+    --filter_text: #adb9c7;
+    --filter_back: #272b30;
+    --filter_border_focus: #F5CA99;
     /*apiLinks colors*/
     --apiLink_default:#8fa1b4;
     --apiLink_hover:#adb9c7;

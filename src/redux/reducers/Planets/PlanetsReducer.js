@@ -4,87 +4,14 @@ const SET_PLANETS = 'test-task/planets/SET_PLANETS';
 const TOGGLE_IS_FETCHING ='test-task/planets/TOGGLE_IS_FETCHING';
 const SET_CURRENT_PAGE ='test-task/planets/SET_CURRENT_PAGE';
 const SET_TOTAL_COUNT = 'test-task/planets/SET_TOTAL_COUNT';
+const TOGGLE_IS_VISIBLE = 'test-task/planets/TOGGLE_IS_VISIBLE';
 
 let initialState = {
     planets: [],
     isFetching: false,
     currentPage: 1,
-    pageSize: 10,
-    portionSize: 5,
-    next: null,
-    previous: null,
     count: 0,
-    columns: [
-        {title: 'Имя', dataIndex: 'name', key: 'name',
-            align: 'center',
-            render: text => <span>{text}</span>
-        },
-        {
-            title: 'Период вращения',
-            dataIndex: "rotation_period",
-            key: 'rotation_period',
-        },
-        {
-            title: 'Орбитальный период',
-            dataIndex: 'orbital_period',
-            key: 'orbital_period',
-        },
-        {
-            title: 'Диаметр',
-            dataIndex: 'diameter',
-            key: 'diameter',
-        },
-        {
-            title: 'Климат',
-            dataIndex: 'climate',
-            key: 'climate',
-        },
-        {
-            title: 'Граыитация',
-            dataIndex: 'gravity',
-            key: 'gravity',
-        },
-        {
-            title: 'Местность',
-            dataIndex: 'terrain',
-            key: 'terrain',
-        },
-        {
-            title: 'Поверхность воды',
-            dataIndex: 'surface_water',
-            key: 'surface_water',
-        },
-        {
-            title: 'Популяция',
-            dataIndex: 'population',
-            key: 'population',
-        },
-        {
-            title: 'Резиденты',
-            dataIndex: 'residents',
-            key: 'residents',
-        },
-        {
-            title: 'Фильмы',
-            dataIndex: 'films',
-            key: 'films',
-        },
-        {
-            title: 'Создан',
-            dataIndex: 'created',
-            key: 'created',
-        },
-        {
-            title: 'Отредактирован',
-            dataIndex: 'edited',
-            key: 'editer',
-        },
-        {
-            title: 'URL',
-            dataIndex: 'url',
-            key: 'url',
-        }
-    ]
+    isVisible: false
 };
 
 const planetsReducer = (state = initialState, action) => {
@@ -109,6 +36,11 @@ const planetsReducer = (state = initialState, action) => {
                 ...state,
                 count: action.count
             };
+        case TOGGLE_IS_VISIBLE:
+            return {
+                ...state,
+                isVisible: action.isVisible
+            }
         default: return state;
     }
 };
@@ -117,6 +49,7 @@ export const setPlanets = (planets) => ({type: SET_PLANETS, planets});
 export const toggleIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching});
 export const setCurrentPage = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage});
 export const setTotalCount = (count) => ({type: SET_TOTAL_COUNT, count});
+export const toggleIsVisible = isVisible => ({type: TOGGLE_IS_VISIBLE, isVisible});
 //thunk creators
 export const requestPlanets  = (page) => async (dispatch) => {
     dispatch(toggleIsFetching(true));
@@ -127,6 +60,10 @@ export const requestPlanets  = (page) => async (dispatch) => {
     dispatch(toggleIsFetching(false));
     dispatch(setPlanets(response.results));
     dispatch(setTotalCount(response.count));
+};
+
+export const getFiltredData = (filtredArray, filteredData) => dispatch => {
+    if (filtredArray === 'planets') dispatch(setPlanets(filteredData));
 };
 
 export default planetsReducer;

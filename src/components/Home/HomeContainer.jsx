@@ -15,6 +15,7 @@ const HomeContainer = ({getRootData, isFetching, ...props}) => {
         <>
         {isFetching ? <Preloader /> : null}
         <Home {...props} />
+
         </>
     );
 }

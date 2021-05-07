@@ -1,70 +1,21 @@
-import { Button, Table } from 'antd';
+import { Table } from 'antd';
 import React from 'react';
-import { NavLink } from 'react-router-dom';
-import s from './Films.module.css';
+import { filmsColumns } from '../../utils/columns';
+import { filmsTitle } from '../../utils/dataSource';
+import HomePageButton from '../Common/HomePageButton/HomePageButton';
+import commonStyle from '../Components.module.css';
 
 const Films = ({films}) => {
-        const columns = [
-        {
-            title: 'Название',
-            dataIndex: 'title',
-            key: 'title',
-        },
-        {
-            title: 'Эпизод',
-            dataIndex: "episode_id",
-            key: 'episode_id',
-        },
-        {
-            title: 'Начальные титры',
-            dataIndex: 'opening_crawl',
-            key: 'opening_crawl',
-        },
-        {
-            title: 'Режиссер',
-            dataIndex: 'director',
-            key: 'director',
-        },
-        {
-            title: 'Продюссер',
-            dataIndex: 'producer',
-            key: 'producere',
-        },
-        {
-            title: 'Дата выхода',
-            dataIndex: 'release_date',
-            key: 'release_datey',
-        },
-        {
-            title: 'Создан',
-            dataIndex: 'created',
-            key: 'created',
-        },
-        {
-            title: 'Отредактирован',
-            dataIndex: 'edited',
-            key: 'editer',
-        },
-        {
-            title: 'URL',
-            dataIndex: 'url',
-            key: 'url',
-        }
-    ];
-    const dataSource = films;
     return(
         <>
-            <Button htmlType='button'
-                shape='circle'
-                size='large'
-                type='link'>
-                <NavLink to='/'>
-                    Перейти на домашнюю страницу
-                </NavLink>
-            </Button>
-            <Table columns={columns}
-                dataSource={dataSource}
-                pagination={false} />
+            <HomePageButton />
+            <Table columns={filmsColumns()}
+                dataSource={films}
+                pagination={false}
+                className={commonStyle.table}
+                title={filmsTitle}
+                rowClassName={commonStyle.rows}
+                />
     </>
     );
 }

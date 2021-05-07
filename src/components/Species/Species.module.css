@@ -1,0 +1,90 @@
+.nameColumn {
+    vertical-align: middle;
+    padding: 10px;
+    cursor: default;
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--table_header_color);
+    border: 1px solid var(--table_border_internal);
+}
+
+.classColumn {
+    vertical-align: middle;
+    padding: 10px;
+    cursor: default;
+    font-weight: normal;
+    color: var(--table_text_color);
+    border: 1px solid var(--table_border_internal);
+}
+
+.designationColumn {
+    vertical-align: middle;
+    padding: 10px;
+    cursor: default;
+    font-weight: normal;
+    color: var(--table_text_color);
+    border: 1px solid var(--table_border_internal);
+}
+
+.heightColumn {
+    vertical-align: middle;
+    padding: 10px;
+    cursor: default;
+    font-weight: bold;
+    color: var(--table_text_color);
+    border: 1px solid var(--table_border_internal);
+}
+
+.scinColumn {
+    vertical-align: middle;
+    padding: 10px;
+    cursor: default;
+    font-weight: normal;
+    color: var(--table_text_color);
+    border: 1px solid var(--table_border_internal);
+}
+
+.hairColumn {
+    vertical-align: middle;
+    padding: 10px;
+    cursor: default;
+    font-weight: normal;
+    color: var(--table_text_color);
+    border: 1px solid var(--table_border_internal);
+}
+
+.eyeColumn {
+    vertical-align: middle;
+    padding: 10px;
+    cursor: default;
+    font-weight: normal;
+    color: var(--table_text_color);
+    border: 1px solid var(--table_border_internal);
+}
+
+.lifespanColumn {
+    vertical-align: middle;
+    padding: 10px;
+    cursor: default;
+    font-weight: bold;
+    color: var(--table_text_color);
+    border: 1px solid var(--table_border_internal);
+}
+
+.homeworldColumn {
+    vertical-align: middle;
+    padding: 10px;
+    cursor: default;
+    font-weight: normal;
+    color: var(--table_text_color);
+    border: 1px solid var(--table_border_internal);
+}
+
+.languageColumn {
+    vertical-align: middle;
+    padding: 10px;
+    cursor: default;
+    font-weight: normal;
+    color: var(--table_text_color);
+    border: 1px solid var(--table_border_internal);
+}

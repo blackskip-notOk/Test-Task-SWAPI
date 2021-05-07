@@ -15,7 +15,7 @@ const reducers = combineReducers({
     films: filmsReducer,
     starships: starshipsReducer,
     vehicles: vehiclesReducer,
-    species: speciesReducer
+    species: speciesReducer,
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

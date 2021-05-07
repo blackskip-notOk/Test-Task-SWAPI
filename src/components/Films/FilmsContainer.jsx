@@ -5,8 +5,7 @@ import { getIsFetching, getFilms } from '../../redux/selectors/Films/FilmsSelect
 import Preloader from '../Common/Preloader/Preloader';
 import Films from './Films';
 
-const FilmsContainer = ({requestFilms, isFetching,
-    films}) => {
+const FilmsContainer = ({requestFilms, isFetching, films}) => {
     useEffect(() => {requestFilms()}, [requestFilms]);
     return (
         <>
