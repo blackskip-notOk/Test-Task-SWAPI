@@ -1,117 +1,60 @@
-import { Button, Table } from 'antd';
+import { Pagination, Table } from 'antd';
 import React from 'react';
-import { NavLink } from 'react-router-dom';
-import Paginator from '../Common/Paginator/Paginator';
+import { peopleColumns } from '../../utils/columns';
+import { peopleTitle } from '../../utils/dataSource';
+import HomePageButton from '../Common/HomePageButton/HomePageButton';
 import s from './People.module.css';
 
-const People = ({currentPage, portionSize, pageSize,
-    requestPeople, people, pages, portionCount}) => {
-    const columns = [
-        {
-            title: 'Имя',
-            dataIndex: 'name',
-            key: 'name',
-            align: 'center',
-            className: `${s.nameColumn}`,
-            render: text => <span>{text}</span>
-        },
-        {
-            title: 'Рост',
-            dataIndex: "height",
-            key: 'height',
-        },
-        {
-            title: 'Вес',
-            dataIndex: 'mass',
-            key: 'mass',
-        },
-        {
-            title: 'Цвет волос',
-            dataIndex: 'hair_color',
-            key: 'hair_color',
-        },
-        {
-            title: 'Цвет кожи',
-            dataIndex: 'skin_color',
-            key: 'skin_color',
-        },
-        {
-            title: 'Цвет глаз',
-            dataIndex: 'eye_color',
-            key: 'eye_color',
-        },
-        {
-            title: 'Год рождения',
-            dataIndex: 'birth_year',
-            key: 'birth_year',
-        },
-        {
-            title: 'Пол',
-            dataIndex: 'gender',
-            key: 'gender',
-        },
-        {
-            title: 'Родной мир',
-            dataIndex: 'homeworld',
-            key: 'home_world',
-        },
-        {
-            title: 'Фильмы',
-            dataIndex: 'films',
-            key: 'films',
-        },
-        {
-            title: 'Вид',
-            dataIndex: 'species',
-            key: 'species',
-        },
-        {
-            title: 'Транспорт',
-            dataIndex: 'vehicles',
-            key: 'vehicles',
-        },
-        {
-            title: 'Космические корабли',
-            dataIndex: 'starships',
-            key: 'starships',
-        },
-        {
-            title: 'Создан',
-            dataIndex: 'created',
-            key: 'created',
-        },
-        {
-            title: 'Отредактирован',
-            dataIndex: 'edited',
-            key: 'editer',
-        },
-        {
-            title: 'URL',
-            dataIndex: 'url',
-            key: 'url',
-        }
-    ];
+const People = ({currentPage, count, requestPeople, people}) => {
+    const columns = peopleColumns();
     const dataSource = people;
+    const title = peopleTitle;
+
+    function itemRender(page, type, originalElement, current) {
+        switch(type) {
+            case 'prev':
+                return <div className={s.changePage}><i className="fas fa-angle-left"></i></div>;
+            case 'next':
+                return <div className={s.changePage}><i className="fas fa-angle-right"></i></div>;
+            case 'page':
+                return <div className={current === page ? s.pageChosen : s.page}>{page}</div>;
+            case 'jump-prev':
+                return <div className={s.changePage}><i className="fas fa-angle-double-right"></i></div>;
+            case 'jump-next':
+                return <div className={s.changePage}><i className="fas fa-angle-double-left"></i></div>;
+
+            default: return originalElement;
+        }
+    }
+
+    const onPageChanged = (page) => {
+        requestPeople(page);
+        //добавить изменение класса в зависимлсти от страницы
+    };
 
     return(
         <>
-            <Button htmlType='button'
-                shape='circle'
-                size='large'
-                type='link'>
-                <NavLink to='/'>
-                    Перейти на домашнюю страницу
-                </NavLink>
-            </Button>
+            <HomePageButton />
             <Table columns={columns}
                 dataSource={dataSource}
-                pagination={false} />
-            <Paginator currentPage={currentPage}
+                pagination={false}
+                className={s.table}
+                title={title}
+                rowClassName={s.rows} />
+
+            <Pagination current={currentPage}
+                showSizeChanger={false}
+                itemRender={itemRender}
+                total={count}
+                onChange={onPageChanged}
+                className={s.pagination}
+                />
+            {/* <Paginator currentPage={currentPage}
                     pages={pages}
                     portionCount={portionCount}
                     portionSize={portionSize}
                     requestPeople={requestPeople}
-                    pageSize={pageSize} />
+                    pageSize={pageSize} /> */}
     </>
     );
 }

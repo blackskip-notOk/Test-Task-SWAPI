@@ -9,18 +9,15 @@ import People from './People';
 const PeopleContainer = ({requestPeople, pagesInfo, isFetching,
     people}) => {
     useEffect(() => {
-        requestPeople(pagesInfo.currentPage, pagesInfo.pageSize);
-    }, [pagesInfo.currentPage, pagesInfo.pageSize, requestPeople]);
+        requestPeople(pagesInfo.currentPage);
+    }, [pagesInfo.currentPage, requestPeople]);
     return (
         <>
         {isFetching ? <Preloader /> : null}
         <People currentPage={pagesInfo.currentPage}
-            portionSize={pagesInfo.portionSize}
             requestPeople={requestPeople}
-            pageSize={pagesInfo.pageSize}
             people={people}
-            pages={pagesInfo.pages}
-            portionCount={pagesInfo.portionCount} />
+            count={pagesInfo.count} />
         </>
     );
 }

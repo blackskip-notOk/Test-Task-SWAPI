@@ -13,6 +13,10 @@ export const getPeople = state => {
                 return person.gender = <i className = "fas fa-venus"></i>;
             case 'n/a':
                 return person.gender = <i className = "fas fa-genderless"></i>;
+            case 'hermaphrodite':
+                return person.gender = <i className="fas fa-transgender"></i>;
+            case 'none':
+                return person.gender = <i className="fas fa-times"></i>;
             default: return person.gender;
         }
     });
@@ -20,15 +24,7 @@ export const getPeople = state => {
 }
 export const getIsFetching = state => state.people.isFetching;
 export const getPagesInfo = state => {
-    const pageSize = state.people.pageSize;
     const count = state.people.count;
     const currentPage = state.people.currentPage;
-    const pages = [];
-    const pagesCount = Math.ceil(count / pageSize);
-    for (let i = 1; i <= pagesCount; i++) {
-        pages.push(i);
-    }
-    const portionSize = state.people.portionSize
-    const portionCount = Math.ceil(pagesCount / portionSize);
-    return {pageSize, currentPage, pages, portionCount, portionSize};
+    return {currentPage, count};
 };

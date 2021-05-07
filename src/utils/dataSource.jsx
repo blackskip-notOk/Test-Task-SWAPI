@@ -2,6 +2,7 @@ import { Button } from 'antd';
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import homeStyle from '../components/Home/Home.module.css';
+import peopleStyle from '../components/People/People.module.css';
 
 export const homeTableData = (titles, api) => {
     return (
@@ -76,4 +77,10 @@ export const homeTableData = (titles, api) => {
     );
 };
 
+// export const setTitle = (text, className) => {
+//     return <h2 className={className}>{text}</h2>;
+// }
+
 export const homeTitle = () => <h2 className={homeStyle.tableTitle}>Домашняя страница</h2>;
+
+export const peopleTitle = () => <h2 className={peopleStyle.tableTitle}>Персонажи из вселенной Star Wars</h2>;
